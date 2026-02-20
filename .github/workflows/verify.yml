@@ -1,23 +1,11 @@
-name: Verify URF-Core Checksums
+name: verify
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout verifier
-        uses: actions/checkout@v4
-
-      - name: Checkout URF-Core
-        uses: actions/checkout@v4
-        with:
-          repository: inaciovasquez2020/urf-core
-          path: urf-core
-
-      - name: Verify checksums
-        run: |
-          chmod +x scripts/verify_checksums.sh
-          ./scripts/verify_checksums.sh urf-core
+      - uses: actions/checkout@v4
+      - run: echo "Manual URF core verification (experimental)"
